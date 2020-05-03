@@ -1,7 +1,14 @@
-import React from 'react';
+import React from 'react'
 
 function App() {
-  return <h1>Hello, world.</h1>;
+  const greeting = "Hello, itosho!"
+  const dom = <h1 className="foo">{greeting}</h1>
+  return (
+    <React.Fragment>
+      {dom}
+      <input type="text" onClick={() => {console.log("Clocked!")}} />
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App
