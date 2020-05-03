@@ -1,13 +1,20 @@
 import React from 'react'
 
-function App() {
-  const greeting = "Hello, itosho!"
+const App= () => {
+  const greeting = "Hello, Component"
   const dom = <h1 className="foo">{greeting}</h1>
   return (
     <React.Fragment>
-      {dom}
-      <input type="text" onClick={() => {console.log("Clocked!")}} />
+      <Why />
+      <Why />
+      <Why />
     </React.Fragment>
+  )
+}
+
+const Why= () => {
+  return (
+    <p>Why?</p>
   )
 }
 
