@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { increment, decrement } from '../actions'
 
-const App = (props) => {
+const EventsIndex = (props) => {
     return (
       <React.Fragment>
         <div>count value: {props.value}</div>
@@ -21,4 +21,4 @@ const mapStateToProps = state => ({ value: state.count.value })
 // shorthand
 const mapDispatchToProps = ({ increment, decrement })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)
