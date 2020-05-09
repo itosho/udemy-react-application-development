@@ -7,24 +7,29 @@ import { Link } from 'react-router-dom'
 // import { postEvents } from '../actions'
 
 class EventsNew extends Component {
-  renderfield(field) {
+  renderField(field) {
     const {
       input,
       label,
       type,
       meta: { touched, error },
     } = field
-    return <div></div>
+    return (
+      <div>
+        <input {...input} placeholder={label} type={type} />
+        {touched && error && <span>{error}</span>}
+      </div>
+    )
   }
 
   render() {
     return (
       <form>
         <div>
-          <Field label="Title" name="title" type="text" component={this.renderfield} />
+          <Field label="Title" name="title" type="text" component={this.renderField} />
         </div>
         <div>
-          <Field label="Body" name="body" type="text" component={this.renderfield} />
+          <Field label="Body" name="body" type="text" component={this.renderField} />
         </div>
         <div>
           <input type="submit" value="Submit" disabled={false} />
@@ -39,6 +44,10 @@ class EventsNew extends Component {
 
 const validate = (values) => {
   const errors = {}
+  if (!values.title) errors.title = 'Enter a title, please.'
+  if (!values.body) errors.body = 'Enter a body, please.'
+
   return errors
 }
+
 export default connect(null, null)(reduxForm({ validate, form: 'eventNewForm' })(EventsNew))
