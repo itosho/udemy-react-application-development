@@ -40,7 +40,7 @@ class EventsShow extends Component {
   }
 
   async onSubmit(values) {
-    // await this.props.postEvent(values)
+    await this.props.putEvent(values)
     this.props.history.push('/')
   }
 
@@ -71,7 +71,7 @@ const mapStateToProps = (state, ownProps) => {
   const event = state.events[ownProps.match.params.id]
   return { initialValues: event, event }
 }
-const mapDispatchToProps = { deleteEvent, getEvent }
+const mapDispatchToProps = { deleteEvent, getEvent, putEvent }
 
 const validate = (values) => {
   const errors = {}
