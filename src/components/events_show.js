@@ -27,6 +27,7 @@ class EventsShow extends Component {
       type,
       meta: { touched, error },
     } = field
+
     return (
       <TextField
         hintText={label}
