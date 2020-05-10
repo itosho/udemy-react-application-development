@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export const READ_EVENTS = 'READ_EVENTS'
+export const READ_EVENT = 'READ_EVENT'
 export const CREATE_EVENT = 'CREATE_EVENT'
 export const DELETE_EVENT = 'DELETE_EVENT'
 
@@ -10,6 +11,11 @@ const QUERY_STRING = '?token=token123'
 export const readEvents = () => async (dispatch) => {
   const response = await axios.get(ROOT_URL + '/events' + QUERY_STRING)
   dispatch({ type: READ_EVENTS, response })
+}
+
+export const getEvent = (id) => async (dispatch) => {
+  const response = await axios.get(ROOT_URL + '/events/' + id + QUERY_STRING)
+  dispatch({ type: READ_EVENT, response })
 }
 
 export const postEvent = (values) => async (dispatch) => {
